@@ -13,11 +13,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## 常用命令
 
 ```bash
-# 重新解析源 txt 文件并嵌入数据到 index.html
+# 自动查找根目录下的 txt 文件并嵌入数据到 index.html
 node gen.js
+
+# 或指定文件路径
+node gen.js path/to/your/file.txt
 ```
 
-读取 `Xan's Music Ratings 26.05.21.txt`（需自行放置在项目根目录），生成 JSON 并通过 `__MUSIC_DATA__` 标记嵌入到根目录 `index.html`，同时写入 `data.json` 作为备份。
+读取 txt 源文件，生成 JSON 并通过 `__MUSIC_DATA__` 标记嵌入到根目录 `index.html`，同时写入 `data.json` 作为备份。
 
 ## 架构
 

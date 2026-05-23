@@ -1,7 +1,24 @@
 const fs = require("fs");
 const path = require("path");
 const dir = __dirname;
-const inputPath = path.join(dir, "Xan's Music Ratings 26.05.21.txt");
+
+// 支持命令行参数指定输入文件，或自动查找项目根目录下的 .txt 文件
+let inputPath = process.argv[2];
+if (!inputPath) {
+  const txtFiles = fs.readdirSync(dir).filter(f => f.endsWith('.txt'));
+  if (txtFiles.length === 0) {
+    console.error("未找到 .txt 源文件，请将 txt 文件放在项目根目录或通过参数指定路径");
+    console.error("用法: node gen.js <输入文件路径>");
+    process.exit(1);
+  }
+  inputPath = path.join(dir, txtFiles[0]);
+  if (txtFiles.length > 1) {
+    console.log("找到多个 .txt 文件，使用第一个:", txtFiles[0]);
+    console.log("如需指定其他文件，请使用: node gen.js <文件路径>");
+  }
+}
+inputPath = path.resolve(inputPath);
+
 let content;
 try {
   content = fs.readFileSync(inputPath, "utf-8");

@@ -33,11 +33,14 @@ open index.html
 ### 方式二：重新生成数据
 
 ```bash
-# 从源 txt 文件重新解析并生成
+# 自动查找根目录下的 txt 文件并重新生成
 node gen.js
+
+# 或指定文件路径
+node gen.js path/to/your/file.txt
 ```
 
-读取 `Xan's Music Ratings 26.05.21.txt`（需自行放置在项目根目录），生成 JSON 并嵌入到根目录 `index.html`，同时写入 `data.json` 作为备份。
+读取 txt 源文件，生成 JSON 并嵌入到根目录 `index.html`，同时写入 `data.json` 作为备份。
 
 ### 数据加载优先级
 

@@ -21,7 +21,21 @@
 
 ## 使用方式
 
-### 方式一：直接打开（推荐）
+### 快速开始
+
+1. 准备你的 txt 源文件，放到项目根目录
+2. 运行 `node gen.js` 将数据嵌入到 index.html
+3. 双击打开 `index.html` 即可使用
+
+```bash
+# 自动查找根目录下的 txt 文件并生成
+node gen.js
+
+# 或指定文件路径
+node gen.js path/to/your/file.txt
+```
+
+### 直接打开
 
 ```bash
 # 双击打开 index.html 即可
@@ -29,18 +43,6 @@ open index.html
 ```
 
 首次打开会加载嵌入的初始数据，后续编辑自动保存到 `localStorage`。
-
-### 方式二：重新生成数据
-
-```bash
-# 自动查找根目录下的 txt 文件并重新生成
-node gen.js
-
-# 或指定文件路径
-node gen.js path/to/your/file.txt
-```
-
-读取 txt 源文件，生成 JSON 并嵌入到根目录 `index.html`，同时写入 `data.json` 作为备份。
 
 ### 数据加载优先级
 

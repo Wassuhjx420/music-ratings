@@ -1,8 +1,8 @@
 # Xan's Music Ratings
 
-一个 iOS 风格的交互式个人乐评网页应用，收录 880+ 张专辑/单曲，时间跨度 1960s–2026。
+一个 iOS 风格的交互式个人乐评网页应用模板。**无需服务器**，直接在浏览器中打开即可使用。
 
-**无需服务器**，直接在浏览器中打开即可使用。所有编辑自动保存到浏览器本地存储，支持 JSON 导入导出实现跨设备同步。
+所有编辑自动保存到浏览器本地存储，支持 JSON 导入导出实现跨设备同步。
 
 ## 截图
 
@@ -23,7 +23,7 @@
 
 ### 快速开始
 
-1. 准备你的 txt 源文件，放到项目根目录
+1. 准备你的 txt 源文件（格式见下方），放到项目根目录
 2. 运行 `node gen.js` 将数据嵌入到 index.html
 3. 双击打开 `index.html` 即可使用
 
@@ -35,20 +35,47 @@ node gen.js
 node gen.js path/to/your/file.txt
 ```
 
-### 直接打开
+### 直接打开（已有数据时）
 
-```bash
-# 双击打开 index.html 即可
-open index.html
-```
-
-首次打开会加载嵌入的初始数据，后续编辑自动保存到 `localStorage`。
+如果 index.html 中已嵌入数据，双击打开即可使用。后续编辑自动保存到 `localStorage`。
 
 ### 数据加载优先级
 
 ```
 localStorage > __MUSIC_DATA__（嵌入数据）> data.json
 ```
+
+## txt 文件格式
+
+源 txt 文件格式如下：
+
+```
+Vol. 1 - 2025
+1. Album Title - Artist Name <85>
+2. Another Album - Another Artist <92> 12.15
+3. EP Title - Some Artist <NR> EP
+...
+
+P.S.
+Song Title - Artist Name <88>
+Another Song - Another Artist
+
+AOTY
+AOTY Album Title 95/100
+Artist Name
+乐评：这是一段评论文字...
+
+2024
+1. Classic Album - Legendary Artist <100>
+...
+```
+
+**格式说明：**
+- **Section 标题**：`Vol. 1 - 2025`、`2024`、`2023` 等年份
+- **专辑条目**：`序号. 标题 - 艺术家 <分数>` 或 `标题 - 艺术家 <分数> MM.DD`
+- **标签**：在行尾添加 `EP`、`Mixtape`、`Reissue` 等
+- **Singles 部分**：以 `P.S.` 开头
+- **AOTY 专辑**：`AOTY` 开头，下一行 `标题 分数/100`，再下一行艺术家，然后是乐评
 
 ## 项目结构
 

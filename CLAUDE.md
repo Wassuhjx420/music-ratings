@@ -8,7 +8,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 项目简介
 
-模块化交互式乐评网页应用，iOS 风格。包含 880+ 条专辑/单曲数据，时间跨度 1960s–2026。用户可在浏览器中直接编辑分数、评论、标签。无需服务器，直接打开 HTML 文件即可使用。支持中英文切换。
+模块化交互式乐评网页应用模板，iOS 风格。用户可在浏览器中直接编辑分数、评论、标签。无需服务器，直接打开 HTML 文件即可使用。支持中英文切换。
+
+需要通过 `node gen.js` 从 txt 源文件生成数据嵌入到 index.html。
 
 ## 常用命令
 
